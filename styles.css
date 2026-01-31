@@ -1,111 +1,137 @@
-/* Quitamos los márgenes por defecto para que la web toque los bordes de la TV */
+/* --- 1. RESET Y FONDO (Sin Grid aquí) --- */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #000; /* Fondo negro para ahorrar energía y resaltar colores */
+    background-color: #000;
     color: white;
-    
-    /* 2. DEFINICIÓN DEL CONTENEDOR MAESTRO */
-    height: 100vh; /* Ocupa el 100% de la altura de la TV */
-    display: grid; /* Activamos el modo cuadrícula */
-    
-    /* Aquí definimos los 3 pisos*/
-    grid-template-rows: 15% 55% 30%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Importante: Evita barras de desplazamiento */
 }
 
-/* 3. ESTILOS DE LAS SECCIONES */
+/* --- 2. CONTENEDOR MAESTRO (Aquí definimos el esqueleto Vertical) --- */
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    
+    /* UNA SOLA COLUMNA (Vertical) */
+    grid-template-columns: 1fr;
+    
+    /* TRES PISOS:
+       1. Header (Reloj): 15%
+       2. Calendario: 35% (Le damos buen espacio)
+       3. Footer (Video/Frase): 50% (La mitad de la pantalla para lo visual)
+    */
+    grid-template-rows: 15% 35% 50%;
+    
+    box-sizing: border-box;
+    padding: 0; /* Sin padding general para aprovechar los bordes */
+}
+
+/* --- 3. ESTILOS DE LOS PISOS --- */
 
 /* PISO 1: Header (Reloj y Clima) */
 #seccion-superior {
-    background-color: #1a1a1a; /* Gris muy oscuro */
-    display: flex; /* Flexbox ayuda a alinear cosas lado a lado fácilmente */
-    justify-content: space-between; /* Espacio igual entre reloj y clima */
-    align-items: center; /* Centrados verticalmente */
+    background-color: #1a1a1a;
+    display: flex;
+    /* En vertical, a veces se ve mejor en columna, pero probemos fila primero */
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 2px solid #333;
-    padding: 0 40px;
-    font-size: 2rem;
-    font-weight: bold;
+    padding: 0 20px; /* Un poco menos de padding lateral */
 }
 
 /* PISO 2: Calendario */
 #seccion-calendario {
     background-color: #000;
-    /* Aquí el calendario ocupará todo el espacio disponible */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #seccion-calendario iframe {
     width: 100%;
     height: 100%;
     border: none;
-    filter: invert(0.9) hue-rotate(100deg);
+    filter: invert(0.9) hue-rotate(180deg); /* Ajuste de color para modo oscuro */
 }
 
-/* PISO 3: Footer Dividido */
+/* PISO 3: Footer (Video y Frase) - EL CAMBIO IMPORTANTE */
 #seccion-inferior {
-    display: grid; 
-    /* Dividimos este piso en 2 columnas iguales (50% y 50%) */
-    grid-template-columns: 1fr 1fr; 
+    display: grid;
+    /* ANTES: grid-template-columns: 1fr 1fr; (Lado a lado = ERROR en vertical) */
+    
+    /* AHORA: Una sola columna, dos filas */
+    grid-template-columns: 1fr;
+    
+    /* El video (carrusel) ocupa casi todo (80%), la frase abajo pequeña (20%) */
+    grid-template-rows: 80% 20%; 
+    
     border-top: 2px solid #333;
+    height: 100%; /* Asegura que llene su hueco */
 }
 
-#frase-dia {
-    background-color: #111;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-style: italic;
-    font-size: 1.5rem;
-    color: #ffd700; /* Color dorado para la frase */
-    line-height: 1.4;
-}
-
+/* El Carrusel ahora es el protagonista del piso inferior */
 #carrusel {
     background-color: #222;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Si la imagen es muy grande, la corta */
+    width: 100%;
+    height: 100%;
+    position: relative; /* Para asegurar posicionamiento */
 }
 
 #carrusel img, #carrusel video, #carrusel iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Esto evita que se deforme, recorta lo que sobra */
     border: none;
+    display: block;
 }
 
+/* La frase va abajo del todo */
+#frase-dia {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem; /* Un poco más chico para que quepa */
+    color: #ffd700;
+    font-style: italic;
+}
+
+/* --- 4. DETALLES DEL HEADER --- */
 #clima-contenedor {
     display: flex;
-    align-items:  center;
+    align-items: center;
     gap: 10px;
 }
 
 #clima-icono img {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Iconos un poco más pequeños en vertical */
+    height: 40px;
     filter: invert(1);
 }
 
 #clima-info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1;
+    align-items: flex-end; /* Alineado a la derecha */
+    line-height: 1.2;
 }
 
 #temperatura {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 #ubicacion {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #ccc;
 }
