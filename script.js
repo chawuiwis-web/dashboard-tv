@@ -144,17 +144,17 @@ const playlist = [
     { type: 'image', src: 'Calendario/Recuerdos/IMG_20190223_225728891_PORTRAIT.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/IMG_20190401_173118902.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/z.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z2.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z3.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z4.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z5.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z6.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z7.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z8.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z9.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z10.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z11.png' },
-    { type: 'image', src: 'Calendario/Recuerdos/z12.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z2.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z3.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z4.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z5.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z6.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z7.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z8.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z9.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z10.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z11.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z12.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/z13.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/z14.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/z15.jpg' },
@@ -282,4 +282,5 @@ async function actualizarFrase() {
 actualizarFrase();
 
 // Actualizar cada 4 horas
+
 setInterval(actualizarFrase, 14400000);
