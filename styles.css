@@ -1,89 +1,168 @@
-/* RESET BÁSICO */
+* =========================================
+   STYLES.CSS - VERSIÓN FINAL (TEXTOS GIGANTES)
+   ========================================= */
+
+/* --- 1. ROTACIÓN Y RESET --- */
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
     color: white;
     font-family: 'Arial', sans-serif;
-    /* Al rotar el sistema, el ancho y alto son NORMALES */
-    width: 100%; 
-    height: 100vh;
+    
+    /* Configuración para TV Vertical */
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    position: absolute;
+    top: 0;
+    left: 100%; 
     overflow: hidden;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* --- 2. ESTRUCTURA (GRID) --- */
 .container {
     display: grid;
     width: 100%;
     height: 100%;
-    
-    /* 1 Columna (Ancho completo) */
     grid-template-columns: 1fr;
     
-    /* 3 Filas: Header, Calendario, Footer */
-    grid-template-rows: 15% 45% 40%; 
+    /* 20% Header (Reloj/Clima)
+       40% Calendario
+       40% Footer (Carrusel/Frase)
+    */
+    grid-template-rows: 20% 40% 40%;
     
     box-sizing: border-box;
+    padding: 0;
 }
 
-/* --- ESTILOS VISUALES (Simplificados) --- */
-
+/* --- 3. PISO 1: HEADER --- */
 #seccion-superior {
     background-color: #1a1a1a;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Extremos */
     align-items: center;
-    padding: 0 20px;
-    border-bottom: 2px solid #333;
+    padding: 0 40px; 
+    border-bottom: 4px solid #333;
 }
 
+/* -- RELOJ GIGANTE -- */
+#reloj {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Clases usadas por JS */
+.hora-gigante {
+    font-size: 6.5rem; /* Ajusta este número si es muy grande */
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -3px;
+}
+
+.fecha-grande {
+    font-size: 1.8rem;
+    color: #ccc;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+/* -- CLIMA GIGANTE -- */
+#clima-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#clima-icono img {
+    width: 90px;
+    height: 90px;
+    filter: invert(1);
+}
+
+#clima-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#temperatura {
+    font-size: 5rem; /* Temperatura enorme */
+    font-weight: 800;
+    line-height: 1;
+}
+
+#ubicacion {
+    font-size: 1.2rem;
+    color: #aaa;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- 4. PISO 2: CALENDARIO --- */
 #seccion-calendario {
-    /* El calendario ocupará su espacio natural */
     width: 100%;
     height: 100%;
+    background-color: #000;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #333;
 }
 
 #seccion-calendario iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* Mantenemos la inversión de color si te gusta oscuro */
     filter: invert(0.9) hue-rotate(180deg);
 }
 
+/* --- 5. PISO 3: FOOTER (LADO A LADO) --- */
 #seccion-inferior {
-    /* Aquí va el video y la frase */
     display: grid;
-    grid-template-rows: 80% 20%; /* 80% video, 20% frase */
-    border-top: 2px solid #333;
+    /* Divide el ancho en 2: 50% Video | 50% Frase */
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 100%;
 }
 
+/* Carrusel (Izquierda) */
 #carrusel {
     width: 100%;
     height: 100%;
+    background-color: #000;
     overflow: hidden;
+    position: relative;
+    border-right: 2px solid #333;
 }
 
-#carrusel img, #carrusel video, #carrusel iframe {
+#carrusel img, #carrusel video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* CLAVE: Esto evita que se vea aplastado */
+    object-fit: cover; /* Clave para que no se vea aplastado */
     border: none;
+    display: block;
 }
 
+/* Frase (Derecha) */
 #frase-dia {
+    background-color: #111;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
-    font-size: 1rem;
+    padding: 30px;
+    
+    font-size: 1.8rem; 
     color: #ffd700;
+    font-style: italic;
+    line-height: 1.4;
+    font-weight: bold;
 }
-
-/* Header Info */
-#clima-contenedor { display: flex; gap: 10px; align-items: center; }
-#temperatura { font-size: 1.5rem; font-weight: bold; }
-#ubicacion { font-size: 0.8rem; color: #ccc; }
-
