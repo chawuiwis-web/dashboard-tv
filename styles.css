@@ -1,5 +1,5 @@
-* =========================================
-   STYLES.CSS - VERSIÓN FINAL (TEXTOS GIGANTES)
+/* =========================================
+   STYLES.CSS - VERSIÓN FINAL (ICONO GIGANTE)
    ========================================= */
 
 /* --- 1. ROTACIÓN Y RESET --- */
@@ -46,6 +46,7 @@ body {
     align-items: center;
     padding: 0 40px; 
     border-bottom: 4px solid #333;
+    overflow: hidden; /* Evita que si crece mucho se salga */
 }
 
 /* -- RELOJ GIGANTE -- */
@@ -58,7 +59,7 @@ body {
 
 /* Clases usadas por JS */
 .hora-gigante {
-    font-size: 6.5rem; /* Ajusta este número si es muy grande */
+    font-size: 6.5rem; 
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -3px;
@@ -75,13 +76,15 @@ body {
 #clima-contenedor {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 30px; /* Más separación entre texto e icono */
 }
 
+/* AQUÍ ESTÁ EL CAMBIO DEL TAMAÑO */
 #clima-icono img {
-    width: 90px;
-    height: 90px;
+    width: 160px;  /* ANTES: 90px -> AHORA: 160px */
+    height: 160px; /* ANTES: 90px -> AHORA: 160px */
     filter: invert(1);
+    display: block; /* Asegura que respete el tamaño */
 }
 
 #clima-info {
@@ -91,7 +94,7 @@ body {
 }
 
 #temperatura {
-    font-size: 5rem; /* Temperatura enorme */
+    font-size: 5rem; 
     font-weight: 800;
     line-height: 1;
 }
@@ -101,6 +104,7 @@ body {
     color: #aaa;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: right;
 }
 
 /* --- 4. PISO 2: CALENDARIO --- */
@@ -145,7 +149,7 @@ body {
 #carrusel img, #carrusel video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Clave para que no se vea aplastado */
+    object-fit: cover; 
     border: none;
     display: block;
 }
