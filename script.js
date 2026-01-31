@@ -55,10 +55,10 @@ function obtenerIconoWMO(codigo) {
 }
 
 async function obtenerClima() {
-    // Coordenadas: San Bartolo el Arenal
+    // Coordenadas: Las Arenas
     const lat = 19.8577761;
     const lon = -99.865033;
-    const nombreCiudad = "Las Arenas"; // Acortado para que quepa mejor
+    const nombreCiudad = "Las Arenas"; 
 
     try {
         const respuesta = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
@@ -80,94 +80,103 @@ obtenerClima();
 setInterval(obtenerClima, 3600000); // Cada 1 hora
 
 
-// --- PARTE 3: EL CARRUSEL ---
+// --- PARTE 3: EL CARRUSEL SECUENCIAL ---
+
+// OJO: ORDENA AQUÍ TU LISTA (VIDEO, IMAGEN, VIDEO, IMAGEN...)
 const playlist = [
-    { type: 'video', src: 'Calendario/Videos/1(1).mp4' }, 
+    { type: 'video', src: 'Calendario/Videos/1(1).mp4' },
+    { type: 'image', src: 'Calendario/Recuerdos/1.png' }, 
+    { type: 'image', src: 'Calendario/Recuerdos/z2.jpg' },
     { type: 'video', src: 'Calendario/Videos/1(2).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(3).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(4).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(5).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(6).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(7).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(8).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(9).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(10).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(11).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(12).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(13).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(14).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(15).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(16).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(17).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(18).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(19).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(20).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(21).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/1(22).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/0118a8f77fa31d5dac0c7a61525bc4b2.mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/d(6).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/f(12).mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/FPV.mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/tiktok1.mp4' }, 
-    { type: 'video', src: 'Calendario/Videos/tiktok_nwm_7538058131285282070.mp4' }, 
-    { type: 'image', src: 'Calendario/Recuerdos/1.png' },
     { type: 'image', src: 'Calendario/Recuerdos/2.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z3.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(3).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/3.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z4.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(4).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/4.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z5.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(5).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/5.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z6.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(6).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/6.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z7.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(7).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/7.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z8.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(8).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/8.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z9.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(9).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/9.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z10.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(10).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/10.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z11.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(11).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/11.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z12.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(12).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/12.png' },
+    { type: 'image', src: 'Calendario/Recuerdos/z13.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(13).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/13.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z14.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(14).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/14.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z15.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(15).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/15.jpg' },
+    { type: 'image', src: 'Calendario/Recuerdos/z1.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(16).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/16.jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(17).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/a(7).jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(18).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/b(8).jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(19).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/c(33).jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(20).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(18).jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(21).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(29).jpg' },
+    { type: 'video', src: 'Calendario/Videos/1(22).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(79).jpg' },
+    { type: 'video', src: 'Calendario/Videos/0118a8f77fa31d5dac0c7a61525bc4b2.mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(134).jpg' },
+    { type: 'video', src: 'Calendario/Videos/d(6).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(142).jpg' },
+    { type: 'video', src: 'Calendario/Videos/f(12).mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/f(143).jpg' },
+    { type: 'video', src: 'Calendario/Videos/FPV.mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/FB_IMG_1669778965046.jpg' },
+    { type: 'video', src: 'Calendario/Videos/tiktok1.mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/IMG_20190223_225728891_PORTRAIT.jpg' },
+    { type: 'video', src: 'Calendario/Videos/tiktok_nwm_7538058131285282070.mp4' }, 
     { type: 'image', src: 'Calendario/Recuerdos/IMG_20190401_173118902.jpg' },
     { type: 'image', src: 'Calendario/Recuerdos/z.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z2.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z3.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z4.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z5.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z6.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z7.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z8.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z9.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z10.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z11.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z12.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z13.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z14.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z15.jpg' },
-    { type: 'image', src: 'Calendario/Recuerdos/z1.jpg' },
+    { type: 'video', src: 'Calendario/Videos/z21.mp4' }, 
 ];
 
 let indiceActual = -1; 
 const contenedorCarrusel = document.getElementById('carrusel');
-const tiempoImagen = 10000; 
+const tiempoImagen = 10000; // 10 segundos para imágenes
 
 function cargarSiguienteMedia() {
     contenedorCarrusel.innerHTML = '';
+    
+    // Seguridad: si la lista está vacía, no hacer nada
+    if (playlist.length === 0) return;
+
     const item = playlist[indiceActual];
 
     if (item.type === 'image') {
         const nuevaImagen = document.createElement('img');
         nuevaImagen.src = item.src;
         contenedorCarrusel.appendChild(nuevaImagen);
+        
+        // La imagen dura un tiempo fijo
         setTimeout(avanzarIndice, tiempoImagen);
 
     } else if (item.type === 'video') {
@@ -175,15 +184,18 @@ function cargarSiguienteMedia() {
         nuevoVideo.src = item.src;
         nuevoVideo.autoplay = true; 
         nuevoVideo.muted = true;    
+        
+        // Estilos forzados para asegurar que se vea
         nuevoVideo.style.width = "100%";
         nuevoVideo.style.height = "100%";
-        nuevoVideo.style.objectFit = "cover"; // Asegura que no se aplaste
         
         contenedorCarrusel.appendChild(nuevoVideo);
 
+        // El video dura lo que tenga que durar
         nuevoVideo.onended = function() {
             avanzarIndice();
         };
+        
         // Si el video falla, salta al siguiente
         nuevoVideo.onerror = function() {
             console.log("Error en video, saltando...");
@@ -192,18 +204,20 @@ function cargarSiguienteMedia() {
     }
 }
 
+// NUEVA FUNCIÓN: SECUENCIAL (1, 2, 3...)
 function avanzarIndice() {
-    if (playlist.length <= 1) {
+    // Simplemente sumamos 1 al índice
+    indiceActual++;
+
+    // Si llegamos al final de la lista, volvemos al principio (0)
+    if (indiceActual >= playlist.length) {
         indiceActual = 0;
-    } else {
-        let nuevoIndice;
-        do {
-            nuevoIndice = Math.floor(Math.random() * playlist.length);
-        } while (nuevoIndice === indiceActual);
-        indiceActual = nuevoIndice;
     }
+
     cargarSiguienteMedia();
 }
+
+// Iniciamos el carrusel
 avanzarIndice();
 
 
@@ -236,3 +250,4 @@ async function actualizarFrase() {
 }
 actualizarFrase();
 setInterval(actualizarFrase, 14400000);
+
