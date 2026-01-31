@@ -3,43 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard TV</title>
+    <title>Dashboard TV Vertical</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-        <header id="seccion-superior">
-            <div id="reloj">12:00 PM - Martes</div>
+    <div class="container">
+
+        <div id="seccion-superior">
+            <div id="reloj">Cargando...</div>
+            
             <div id="clima-contenedor">
-                <div id="clima-icono"></div> 
                 <div id="clima-info">
-                    <span id="temperatura">--°C</span>
-                    <span id="ubicacion">Cargando ciudad...</span>
+                    <span id="temperatura">--°</span>
+                    <span id="ubicacion">...</span>
                 </div>
+                <div id="clima-icono">
+                    </div> 
             </div>
-        </header>
-    
-        <section id="seccion-calendario">
+        </div>
+
+        <div id="seccion-calendario">
             <iframe 
                 src="https://calendar.google.com/calendar/embed?src=family10874995828434631956%40group.calendar.google.com&ctz=America%2FMexico_City" 
                 style="border: 0" 
+                width="100%" 
+                height="100%" 
                 frameborder="0" 
                 scrolling="no">
             </iframe>
-        </section>
-    
-        <footer id="seccion-inferior">
-            <div id="frase-dia">
-                "La perseverancia es la clave del éxito."
-            </div>
+        </div>
+
+        <div id="seccion-inferior">
             
             <div id="carrusel">
+                </div>
+
+            <div id="frase-dia">
+                "Cargando inspiración..."
             </div>
-        </footer>
-        <script src="script.js"></script>
+            
+        </div>
 
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
-
 
