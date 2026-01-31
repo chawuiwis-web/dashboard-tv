@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard TV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="seccion-superior">
+        <div id="reloj">12:00 PM - Martes</div>
+        <div id="clima-contenedor">
+            <div id="clima-icono"></div> 
+            <div id="clima-info">
+                <span id="temperatura">--°C</span>
+                <span id="ubicacion">Cargando ciudad...</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="seccion-calendario">
+        <iframe 
+            src="https://calendar.google.com/calendar/embed?src=family10874995828434631956%40group.calendar.google.com&ctz=America%2FMexico_City" 
+            style="border: 0" 
+            width="800" 
+            height="600" 
+            frameborder="0" 
+            scrolling="no">
+        </iframe>
+    </section>
+
+    <footer id="seccion-inferior">
+        <div id="frase-dia">
+            "La perseverancia es la clave del éxito."
+        </div>
+        
+        <div id="carrusel">
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
